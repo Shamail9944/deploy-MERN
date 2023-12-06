@@ -34,6 +34,9 @@ async function main() {
     console.log("DB Connected.")
 }
 
+server.get("/", (req, res) => {
+    res.json("Backend Activated.")
+})
 server.use(session({
     secret: 'keyboard cat',
     resave: false, // don't save session if unmodified
