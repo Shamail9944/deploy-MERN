@@ -33,7 +33,7 @@ async function main() {
 }
 server.get("/", (req, res) => {
     res.json("Backend Activated.")
-    res.set("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
 })
 server.use(session({
     secret: 'keyboard cat',
