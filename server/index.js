@@ -18,8 +18,9 @@ server.use(express.json());
 server.use(cors(
     {
         origin: "https://deploy-mern-frontend-sable.vercel.app",
-        methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
         credentials: "true",
+        methods: ['GET', 'POST', 'HEAD', 'PUT', 'PATCH', 'DELETE'],
+        allowedHeaders: ['Content-Type'],
         exposedHeaders: ["Total-Results"]
     }
 ))
