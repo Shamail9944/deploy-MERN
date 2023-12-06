@@ -1,7 +1,7 @@
 
 export function createUser(userData) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-server.vercel.app//auth/createUser', {
+    const response = await fetch('https://deploy-mern-server.vercel.app/auth/createUser', {
       method: "POST",
       body: JSON.stringify(userData),
       headers: { "Content-Type": "application/json" }
@@ -14,7 +14,7 @@ export function createUser(userData) {
 export function checkUser(loginData) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('https://deploy-mern-server.vercel.app//auth/checkUser', {
+      const response = await fetch('https://deploy-mern-server.vercel.app/auth/checkUser', {
         method: "POST",
         body: JSON.stringify(loginData),
         headers: { "Content-Type": "application/json" }
