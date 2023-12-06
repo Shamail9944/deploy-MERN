@@ -1,6 +1,6 @@
 export function addToCart(item) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/cart/addToCart', {
+    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/cart/addToCart', {
       method: "POST",
       body: JSON.stringify(item),
       headers: { "Content-type": "application/json" }
@@ -12,7 +12,7 @@ export function addToCart(item) {
 
 export function fetchProductByUserId(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/cart/productByUserId?user=' + userId)
+    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/cart/productByUserId?user=' + userId)
     const data = await response.json()
     resolve({ data })
   });
@@ -20,7 +20,7 @@ export function fetchProductByUserId(userId) {
 
 export function updateCart(updateitem) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/cart/updateCart/' + updateitem.id, {
+    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/cart/updateCart/' + updateitem.id, {
       method: "PATCH",
       body: JSON.stringify(updateitem),
       headers: { "Content-type": "application/json" }
@@ -32,7 +32,7 @@ export function updateCart(updateitem) {
 
 export function deleteCartItem(itemId) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/cart/deleteCartItem/' + itemId, {
+    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/cart/deleteCartItem/' + itemId, {
       method: "DELETE",
       headers: { "Content-type": "application/json" }
     })
