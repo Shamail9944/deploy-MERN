@@ -42,13 +42,6 @@ server.use(session({
 }));
 server.use(passport.authenticate('session'));
 
-server.all('*', (req, res, next) => {
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
-    res.set("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.type("application/json");
-    next();
-});
 server.use("/auth", AuthRoute);
 server.use("/brands", BrandRoute);
 server.use("/cart", CartRoute);
