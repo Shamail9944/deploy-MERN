@@ -12,11 +12,13 @@ export const loginUser = async (req, res) => {
             res.status(400).send("Invalid Username.");
         } else if (user.password === password) {
             res.status(200).send({ id: user.id, name: user.name, email: user.email, addresses: user.addresses });
+            res.setHeader('Access-Control-Allow-Origin', '*');
         } else {
             res.status(401).send("Wrong Password.");
         }
     } catch (error) {
         res.status(400).send("Please re-enter Credientials.");
+
         console.log(error);
     }
 }
