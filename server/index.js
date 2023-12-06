@@ -17,7 +17,7 @@ const server = express()
 server.use(express.json());
 server.use(cors(
     {
-        origin: "http://localhost:3000",
+        origin: "https://deploy-mern-server.vercel.app/",
         methods: "GET, POST, PUT, DELETE",
         credentials: "true",
         exposedHeaders: ["Total-Results"]
