@@ -3,7 +3,7 @@ export function addOrder(order) {
     const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/order/addOrder', {
       method: "POST",
       body: JSON.stringify(order),
-      headers: { "content-type": "application/json", "Access-Control-Allow-Origin": "*" }
+      headers: { "content-type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
@@ -14,7 +14,7 @@ export function updateOrder(order) {
     const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/orders/' + order.id, {
       method: "PATCH",
       body: JSON.stringify(order),
-      headers: { "content-type": "application/json", "Access-Control-Allow-Origin": "*" }
+      headers: { "content-type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
