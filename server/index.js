@@ -16,13 +16,13 @@ import LocalStrategy from 'passport-local'
 const server = express()
 server.use(express.json());
 server.use(cors(
-    // {
-    //     origin: "https://deploy-mern-frontend-sable.vercel.app",
-    //     credentials: "true",
-    //     methods: "GET, POST, HEAD, PUT, PATCH, DELETE, OPTIONS",
-    //     allowedHeaders: 'Content-Type',
-    //     exposedHeaders: ["Total-Results"]
-    // }
+    {
+        origin: "https://deploy-mern-frontend-sable.vercel.app",
+        credentials: "true",
+        methods: "GET, POST, HEAD, PUT, PATCH, DELETE, OPTIONS",
+        allowedHeaders: 'Content-Type',
+        exposedHeaders: ["Total-Results"]
+    }
 ))
 server.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
