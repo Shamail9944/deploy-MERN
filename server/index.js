@@ -15,22 +15,32 @@ import LocalStrategy from 'passport-local'
 
 const server = express()
 server.use(express.json());
-server.use(cors({
-    exposedHeaders: ["Total-Results"]
-}))
+server.use(cors(
+    {
+        origin: "http://localhost:3000",
+        methods: "GET, POST, PUT, DELETE",
+        credentials: "true",
+        exposedHeaders: ["Total-Results"]
+    }
+))
+
 const port = 8080
+
 server.listen(port, () => { console.log(`Server listening on port ${port}`) })
 main().catch(err => console.log(err));
+
 async function main() {
     await mongoose.connect('mongodb+srv://shamail130silverhawk:Sam9089944@ecom.sxizew6.mongodb.net/Ecom');
     console.log("DB Connected.")
 }
+
 server.use(session({
     secret: 'keyboard cat',
     resave: false, // don't save session if unmodified
     saveUninitialized: false, // don't create session until something stored
     // store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
 }));
+
 server.use(passport.authenticate('session'));
 
 server.use("/auth", AuthRoute);
