@@ -1,6 +1,6 @@
 export function addOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/order/addOrder', {
+    const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/order/addOrder', {
       method: "POST",
       body: JSON.stringify(order),
       headers: { "content-type": "application/json" }
@@ -11,7 +11,7 @@ export function addOrder(order) {
 }
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/orders/' + order.id, {
+    const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/orders/' + order.id, {
       method: "PATCH",
       body: JSON.stringify(order),
       headers: { "content-type": "application/json" }
@@ -27,7 +27,7 @@ export function FetchAllOrders(pagination) {
   }
 
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-server-po2f8lyo0-shamail9944.vercel.app/orders?' + queryString)
+    const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/orders?' + queryString)
     const data = await response.json()
     const totalOrders = await response.headers.get("X-Total-Count")
     resolve({ data: { orders: data, totalOrders: +totalOrders } })
