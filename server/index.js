@@ -20,21 +20,17 @@ server.use(cors(
         origin: "https://deploy-mern-frontend-sable.vercel.app",
         credentials: "true",
         methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
-        allowedHeaders: ['Content-Type, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'],
+        allowedHeaders: ['Content-Type'],
         exposedHeaders: ["Total-Results"]
     }
 ))
-
 const port = 8080
-
 server.listen(port, () => { console.log(`Server listening on port ${port}`) })
 main().catch(err => console.log(err));
-
 async function main() {
     await mongoose.connect('mongodb+srv://shamail130silverhawk:Sam9089944@ecom.sxizew6.mongodb.net/Ecom');
     console.log("DB Connected.")
 }
-
 server.get("/", (req, res) => {
     res.json("Backend Activated.")
 })
@@ -44,10 +40,16 @@ server.use(session({
     saveUninitialized: false, // don't create session until something stored
     // store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
 }));
-
 server.use(passport.authenticate('session'));
 
-server.use("/auth", cors(), AuthRoute);
+server.all('*', (req, res, next) => {
+    res.set("Access-Control-Allow-Origin", "*");
+    res.set("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
+    res.set("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.type("application/json");
+    next();
+});
+server.use("/auth", AuthRoute);
 server.use("/brands", BrandRoute);
 server.use("/cart", CartRoute);
 server.use("/category", CategoryRoute);

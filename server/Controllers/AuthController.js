@@ -17,7 +17,6 @@ export const loginUser = async (req, res) => {
         }
     } catch (error) {
         res.status(400).send("Please re-enter Credientials.");
-
         console.log(error);
     }
 }
