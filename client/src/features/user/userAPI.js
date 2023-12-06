@@ -1,13 +1,13 @@
 export function fetchLoggedInUserOrders(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/order/orderByUserId?userId=' + userId)
+    const response = await https://deploy-mern-server.vercel.app/order/orderByUserId?userId=' + userId)
     const data = await response.json()
     resolve({ data })
   });
 }
 export function fetchLoggedInUser(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/user/fetchUserById/' + userId)
+    const response = await https://deploy-mern-server.vercel.app/user/fetchUserById/' + userId)
     const data = await response.json()
     resolve({ data })
   });
@@ -15,12 +15,12 @@ export function fetchLoggedInUser(userId) {
 
 export function updateUser(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/user/updateUser/' + update.id, {
+    const response = await https://deploy-mern-server.vercel.app/user/updateUser/' + update.id, {
       method: "PATCH",
       body: JSON.stringify(update),
-      headers: { "Content-Type": "application/json" }
-    })
-    const data = await response.json()
-    resolve({ data })
-  });
+        headers: { "Content-Type": "application/json" }
+  })
+  const data = await response.json()
+  resolve({ data })
+});
 } 
