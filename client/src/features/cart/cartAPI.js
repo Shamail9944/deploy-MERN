@@ -3,7 +3,7 @@ export function addToCart(item) {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/cart/addToCart', {
       method: "POST",
       body: JSON.stringify(item),
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
@@ -23,7 +23,7 @@ export function updateCart(updateitem) {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/cart/updateCart/' + updateitem.id, {
       method: "PATCH",
       body: JSON.stringify(updateitem),
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
@@ -34,7 +34,7 @@ export function deleteCartItem(itemId) {
   return new Promise(async (resolve) => {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/cart/deleteCartItem/' + itemId, {
       method: "DELETE",
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve(data)

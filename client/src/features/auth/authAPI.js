@@ -4,7 +4,7 @@ export function createUser(userData) {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/auth/createUser', {
       method: "POST",
       body: JSON.stringify(userData),
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
@@ -17,7 +17,7 @@ export function checkUser(loginData) {
       const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/auth/checkUser', {
         method: "POST",
         body: JSON.stringify(loginData),
-        headers: { "content-type": "application/json" }
+        headers: { "Content-Type": "application/json" }
       })
 
       if (response.ok) {

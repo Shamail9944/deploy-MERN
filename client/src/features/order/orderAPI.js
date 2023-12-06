@@ -3,7 +3,7 @@ export function addOrder(order) {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/order/addOrder', {
       method: "POST",
       body: JSON.stringify(order),
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
@@ -14,7 +14,7 @@ export function updateOrder(order) {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/orders/' + order.id, {
       method: "PATCH",
       body: JSON.stringify(order),
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })

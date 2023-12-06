@@ -18,7 +18,7 @@ export function updateUser(update) {
     const response = await fetch('https://deploy-mern-frontend-sable.vercel.app/user/updateUser/' + update.id, {
       method: "PATCH",
       body: JSON.stringify(update),
-      headers: { "content-type": "application/json" }
+      headers: { "Content-Type": "application/json" }
     })
     const data = await response.json()
     resolve({ data })
