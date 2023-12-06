@@ -19,8 +19,8 @@ server.use(cors(
     {
         origin: "https://deploy-mern-frontend-sable.vercel.app",
         credentials: "true",
-        methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
-        allowedHeaders: ['Content-Type'],
+        methods: "GET, POST, HEAD, PUT, PATCH, DELETE",
+        allowedHeaders: 'Content-Type',
         exposedHeaders: ["Total-Results"]
     }
 ))
@@ -33,7 +33,6 @@ async function main() {
 }
 server.get("/", (req, res) => {
     res.json("Backend Activated.")
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
 })
 server.use(session({
     secret: 'keyboard cat',
