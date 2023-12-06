@@ -20,7 +20,7 @@ server.use(cors(
         origin: "https://deploy-mern-frontend-sable.vercel.app",
         credentials: "true",
         methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
-        allowedHeaders: ['Content-Type'],
+        allowedHeaders: ['Content-Type, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'],
         exposedHeaders: ["Total-Results"]
     }
 ))
