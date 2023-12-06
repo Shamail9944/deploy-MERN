@@ -47,7 +47,7 @@ server.use(session({
 
 server.use(passport.authenticate('session'));
 
-server.use("/auth", AuthRoute);
+server.use("/auth", cors(), AuthRoute);
 server.use("/brands", BrandRoute);
 server.use("/cart", CartRoute);
 server.use("/category", CategoryRoute);
